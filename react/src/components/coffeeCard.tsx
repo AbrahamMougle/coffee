@@ -30,7 +30,7 @@ const CoffeeCard: React.FC<CoffeeCardProps> = ({
         <p className="text-dark/70 text-sm">
           {description}
         </p>
-        <Button className="w-[240]" variant='primary' size='lg'>
+        <Button className="w-[280]" variant='primary' size='lg'>
           {ctaText} →
         </Button>
       </div>

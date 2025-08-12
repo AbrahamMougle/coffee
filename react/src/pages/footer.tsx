@@ -53,7 +53,7 @@ export  default function Footer() {
           <p className="text-light/80">
             Nous nous engageons à offrir une expérience café exceptionnelle. Votre satisfaction est notre priorité absolue.
           </p>
-          <Button className="w-[150]" variant='primary' size='lg'>
+          <Button className="w-[280]" variant='primary' size='lg'>
             En savoir plus <span>→</span>
           </Button>
         </div>
