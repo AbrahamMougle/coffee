@@ -8,7 +8,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 export default function Button({
   variant = 'primary',
   size = 'md',
-  className = '',
+  className = 'w-[200]',
   children,
   ...props
 }: ButtonProps) {
