@@ -1,86 +1,96 @@
-
-import { useReducer } from "react"
-import debounce from "./function.ts/debounce"
-import reducer from "./function.ts/reducer"
-import type { State } from "./types/type"
-
+import Button from "./components/button";
+import CoffeeCard from "./components/coffeeCard";
+import Footer from "./pages/footer"
+import Header from "./pages/header";
 export default function App() {
-
-  const initState: State = {
-    name: '',
-    email: '',
-    message: ''
-
-  }
-  const [state, dispatch] = useReducer(reducer, initState)
-  const debouncefun = debounce(dispatch, 100)
-
+  const coffeeItems = [
+    {
+      id: 1,
+      title: "Expresso Classique",
+      description: "L'intensité pure d'un café italien traditionnel, avec une crème dorée.",
+      imageUrl: "/photo3.jpg",
+      ctaText: "Voir la technique"
+    },
+    {
+      id: 2,
+      title: "Cappuccino Crémeux",
+      description: "Harmonie parfaite entre espresso, lait chaud et mousse onctueuse.",
+      imageUrl: "/photo2.jpg",
+      ctaText: "Découvrir l'histoire"
+    },
+    {
+      id: 3,
+      title: "Latte Artistique",
+      description: "Notre signature dans une tasse, avec des motifs réalisés à la main.",
+      imageUrl: "/photo5.jpg",
+      ctaText: "Explorer les designs"
+    },
+    {
+      id: 4,
+      title: "Cold Brew Glacé",
+      description: "Infusion lente pour une douceur naturelle et des arômes complexes.",
+      imageUrl: "/photo4.jpg",
+      ctaText: "Apprendre la méthode"
+    }
+  ];
   return (
-    <div className="p-4 space-y-4 max-w-md mx-auto">
-      <h2 className="text-xl font-bold">Formulaire de contact</h2>
+    <div className="min-h-screen flex flex-col">
+      {/* Header léger et discret */}
+      
+      <Header/>
 
-      <div className="flex flex-col gap-2">
-        <label>Nom :</label>
-        <input
-          type="text"
-          value={state.name}
-          onChange={(e) =>
-            debouncefun({
-              type: "updateField",
-              field: "name",
-              value: e.target.value,
-            })
-          }
-          className="border p-2 rounded"
+      {/* Hero Section - Effet vitré lumineux */}
+      <section className="relative flex-grow flex items-center justify-end">
+        <div 
+          className="absolute inset-0 bg-[url('/photo5.jpg')] bg-cover bg-center"
+          style={{
+            filter: "brightness(110%) saturate(120%)",
+            clipPath: "inset(0 0 0 0)"
+          }}
         />
-      </div>
+        
+        <div className="relative h-full w-full bg-gradient-to-r from-dark/30 via-transparent to-light/20" />
+        
+        <div className="relative container mx-auto px-6 md:px-12 py-24">
+          <div className="max-w-md bg-white/70 p-8 rounded-xl backdrop-blur-[2px] border border-white/80 shadow-sm">
+            <h2 className="text-3xl font-heading text-dark mb-4">L'Art du Café</h2>
+            <p className="text-dark/90 mb-6">
+              Découvrez nos créations signatures, où chaque grain raconte une histoire.
+            </p>
+            <Button variant="primary" size="lg" className="w-[200px]">Explorer la sélection</Button>
+            
+          </div>
+        </div>
+      </section>
 
-      <div className="flex flex-col gap-2">
-        <label>Email :</label>
-        <input
-          type="email"
-          value={state.email}
-          onChange={(e) =>
-            debouncefun({
-              type: "updateField",
-              field: "email",
-              value: e.target.value,
-            })
-          }
-          className="border p-2 rounded"
-        />
-      </div>
+      {/* Section Présentation */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-6">
+          <div className="text-center max-w-2xl mx-auto mb-12">
+            <h1 className="text-3xl font-heading text-dark mb-4">Nos Créations</h1>
+            <p className="text-dark/70">
+              Une sélection de nos cafés d'exception, préparés avec passion.
+            </p>
+          </div>
 
-      <div className="flex flex-col gap-2">
-        <label>Message :</label>
-        <textarea
-          value={state.message}
-          onChange={(e) =>
-            debouncefun({
-              type: "updateField",
-              field: "message",
-              value: e.target.value,
-            })
-          }
-          className="border p-2 rounded"
-        />
-      </div>
+          {/* Grille de présentation */}
+           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {coffeeItems.map((coffee) => (
+              <CoffeeCard 
+                key={coffee.id}
+                {...coffee} // Spread operator pour passer toutes les props
+              />
+            ))}
+          </div>
+          
+        </div>
+      </section>
+       {/* footer */}
+   
+   <Footer/>
 
-      <button
-        onClick={() => debouncefun({ type: "reset" })}
-        className="bg-red-600 text-white px-4 py-2 rounded"
-      >
-        Réinitialiser
-      </button>
-
-      <hr />
-
-      <div>
-        <h3 className="font-semibold">Données saisies :</h3>
-        <p><strong>Nom :</strong> {state.name}</p>
-        <p><strong>Email :</strong> {state.email}</p>
-        <p><strong>Message :</strong> {state.message}</p>
-      </div>
+  
+    
     </div>
-  );
+  )
 }
