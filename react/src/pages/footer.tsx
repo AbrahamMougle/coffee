@@ -1,4 +1,4 @@
-import { FiSearch, FiFacebook, FiTwitter, FiInstagram, FiLinkedin} from 'react-icons/fi';
+import { FiFacebook, FiTwitter, FiInstagram, FiLinkedin} from 'react-icons/fi';
 import Button from '../components/button';
 import ListItem from '../components/listItem';
 export  default function Footer() {
