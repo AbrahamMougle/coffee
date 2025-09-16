@@ -34,7 +34,7 @@ const CoffeeCard: React.FC<CoffeeCardProps> = ({ title, description, imageUrl, c
       variants={variants}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: false, amount: 0.3 }} // <-- réversible
+      viewport={{ once: true, amount: 0.3 }}
       whileHover={{ scale: 1.05, y: -5, transition: { type: "spring", stiffness: 300 } }}
     >
       <div className="relative aspect-video overflow-hidden">
