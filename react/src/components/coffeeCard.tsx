@@ -49,8 +49,8 @@ const CoffeeCard: React.FC<CoffeeCardProps> = ({ title, description, imageUrl, c
       <div className="p-5">
         <h3 className="text-xl font-heading text-dark mb-2">{title}</h3>
         <p className="text-dark/70 text-sm">{description}</p>
-        <Button className="w-[280px]" variant="primary" size="lg">
-          {ctaText} →
+        <Button className="w-[200px]" variant="primary" size="lg">
+          {ctaText} 
         </Button>
       </div>
     </motion.div>

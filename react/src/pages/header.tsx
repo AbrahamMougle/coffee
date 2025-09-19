@@ -4,6 +4,22 @@ import { FiMenu, FiX, FiHome, FiBookOpen, FiInfo, FiPhone } from "react-icons/fi
 import { motion, AnimatePresence } from "framer-motion";
 import type { Variants } from "framer-motion";
 import Button from "../components/button";
+function NavLinkStyle({to,linkName}:{to:string,isActiveStyle?:string,noIsActivestyle?:string,linkName:string}) {
+  return  <> 
+   <NavLink
+                  to={to}
+                  className={({ isActive }) =>
+                    ` font-body transition-colors duration-300 ${
+                      isActive ? 'text-primary font-medium bg-primary/5':"text-dark/90 hover:text-primary hover:bg-primary/5"
+                    }`
+                  }
+                >
+                  
+                  {linkName}
+                </NavLink>
+  </>
+  
+}
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -38,21 +54,11 @@ export default function Header() {
         <NavLink to="/" className="text-4xl font-heading font-bold text-primary">Coffee</NavLink>
 
         {/* Desktop nav */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex  items-center gap-8">
           <nav className="flex items-center gap-6">
             {navLinks.map((link) => (
               <motion.div key={link.to} variants={linkVariants} whileHover="hover">
-                <NavLink
-                  to={link.to}
-                  className={({ isActive }) =>
-                    ` font-body transition-colors duration-300 ${
-                      isActive ? "text-primary font-semibold" : "text-dark/80 hover:text-primary"
-                    }`
-                  }
-                >
-                  
-                  {link.name}
-                </NavLink>
+                <NavLinkStyle to={link.to} linkName= {link.name}/>
               </motion.div>
             ))}
           </nav>
@@ -100,7 +106,7 @@ export default function Header() {
                 initial="hidden"
                 animate="visible"
                 exit="hidden"
-                variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
+                variants={{ visible: { transition: { staggerChildren: 3 } } }}
               >
                 {navLinks.map((link) => (
                   <motion.div key={link.to} variants={linkVariants} whileHover="hover">
