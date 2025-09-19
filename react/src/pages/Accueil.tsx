@@ -23,7 +23,7 @@ export default function Accueil() {
     return (
         <section className="bg-gray-50">
             {/* HERO FULL SCREEN */}
-            <div className="relative h-screen flex items-center justify-center text-center overflow-hidden">
+            <div className="relative h-[70vh]  sm:h-screen flex items-center justify-center text-center overflow-hidden">
                 <motion.img
                     src="/photo3.jpg"
                     alt="Hero"
@@ -52,13 +52,13 @@ export default function Accueil() {
             </div>
 
             {/* MISSION SPLIT */}
-            <div className="container mx-auto px-6 py-24 grid md:grid-cols-2 gap-12 items-center">
+            <div className="container mx-auto px-10 py-15 grid md:grid-cols-2 gap-12 items-center">
                 <motion.div
                     initial={{ opacity: 0, x: -60 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.8 }}
                 >
-                    <h2 className="text-3xl text-primary font-heading mb-6">Notre Mission</h2>
+                    <h2 className="text-3xl text-primary text-center font-heading mb-6">Notre Mission</h2>
                     <p className="text-dark/80 leading-relaxed">
                         Offrir un café qui sublime chaque instant, respectueux de l’humain et
                         de la nature. Notre savoir-faire artisanal et notre passion garantissent
