@@ -23,10 +23,10 @@ const getDirectionVariant = (direction: typeof directions[number]): Variants => 
       return { hidden: { y: -50, opacity: 0 }, visible: { y: 0, opacity: 1, transition: { duration: 0.5 } } };
   }
 };
-
+// getDirection renvoie le variant selon left, right ,top 
 const CoffeeCard: React.FC<CoffeeCardProps> = ({ title, description, imageUrl, ctaText }) => {
   const direction = directions[Math.floor(Math.random() * directions.length)];
-  const variants = getDirectionVariant(direction);
+  const variants = getDirectionVariant(direction);// le variant  varie et d'ailleur est aleactoire ce qui est justifie la variation aleactoire des card ie a chaque chargement l'animation change.
 
   return (
     <motion.div
@@ -35,23 +35,25 @@ const CoffeeCard: React.FC<CoffeeCardProps> = ({ title, description, imageUrl, c
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.3 }}
-      whileHover={{ scale: 1.05, y: -5, transition: { type: "spring", stiffness: 300 } }}
+      
     >
-      <div className="relative aspect-video overflow-hidden">
+      <div className="relative aspect-video overflow-hidden ">
         <img
           src={imageUrl}
           alt={title}
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-dark/20 to-transparent" />
+        <div className="absolute inset-4 bg-gradient-to-t from-dark/20 to-transparent" />
       </div>
 
       <div className="p-5">
         <h3 className="text-xl font-heading text-dark mb-2">{title}</h3>
         <p className="text-dark/70 text-sm">{description}</p>
-        <Button className="w-[200px]" variant="primary" size="lg">
+        <div className="flex items-center justify-center">
+          <Button className="flex-grow" variant="primary" size="lg">
           {ctaText} 
         </Button>
+        </div>
       </div>
     </motion.div>
   );
