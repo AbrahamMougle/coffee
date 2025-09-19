@@ -1,6 +1,6 @@
 import Button from "../components/button";
 import CoffeeCard from "../components/coffeeCard";
-import { motion,  useScroll, useTransform } from "framer-motion";
+import { motion} from "framer-motion";
 import type { Variants } from "framer-motion";
 const coffeeItems = [
     {
@@ -37,15 +37,11 @@ const coffeeItems = [
 
 
 const sectionVariants: Variants = {
-  hidden: { opacity: 0, y: 30 },
+  hidden: { opacity: 0, y: -30 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
 };
 
 export default function About() {
-  // Micro-parallax sur background
-  const { scrollY } = useScroll();
-  const yParallax = useTransform(scrollY, [0, 300], [0, -20]); // décale le bg légèrement
-
   return (
     <>
       {/* Section Héro */}
@@ -57,7 +53,7 @@ export default function About() {
       >
         <motion.div
           className="absolute inset-0 bg-[url('/photo5.jpg')] bg-cover bg-center"
-          style={{ y: yParallax, filter: "brightness(110%) saturate(120%)", clipPath: "inset(0 0 0 0)" }}
+        
         />
         <div className="relative h-full w-full bg-gradient-to-r from-dark/30 via-transparent to-light/20" />
         <div className="relative container mx-auto px-6 md:px-12 py-24">
@@ -91,9 +87,7 @@ export default function About() {
 
           <motion.div
             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
+           
             variants={{ visible: { transition: { staggerChildren: 0.15 } } }}
           >
             {coffeeItems.map((coffee) => (
