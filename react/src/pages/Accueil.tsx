@@ -27,7 +27,7 @@ export default function Accueil() {
                 <motion.img
                     src="/photo3.jpg"
                     alt="Hero"
-                    className="absolute inset-0 w-full h-[800px]  md:h-full object-cover"
+                    className="absolute inset-0 w-full h-[500px]  md:h-full object-cover"
                     initial={{ scale: 1.1 }}
                     whileInView={{ scale: 1 }}
                     transition={{ duration: 1 }}
