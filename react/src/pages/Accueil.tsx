@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+
 import { FiCoffee, FiUsers, FiAward, FiHeart } from "react-icons/fi";
 import type { JSX } from "react";
 import Button from "../components/button";
@@ -24,20 +24,16 @@ export default function Accueil() {
         <section className="bg-gray-50">
             {/* HERO FULL SCREEN */}
             <div className="relative h-[70vh]  sm:h-screen flex items-center justify-center text-center overflow-hidden">
-                <motion.img
+                <img
                     src="/photo3.jpg"
                     alt="Hero"
                     className="absolute inset-0 w-full h-[500px]  md:h-full object-cover"
-                    initial={{ scale: 1.1 }}
-                    whileInView={{ scale: 1 }}
-                    transition={{ duration: 1 }}
+                    
                 />
                 <div/>
-                <motion.div
+                <div
                     className=" max-w-2xl text-white z-10"
-                    initial={{ opacity: 0, y: 40 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 1 }}
+                    
                 >
                     <h1 className="text-md md:text-6xl font-heading mb-4">
                         L’Expérience Café Réinventée
@@ -48,15 +44,13 @@ export default function Accueil() {
                     <Button className="bg-primary text-white px-6 py-3 rounded-full">
                         Découvrir
                     </Button>
-                </motion.div>
+                </div>
             </div>
 
             {/* MISSION SPLIT */}
             <div className="container mx-auto px-10 py-15 grid md:grid-cols-2 gap-12 items-center">
-                <motion.div
-                    initial={{ opacity: 0, x: -60 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.8 }}
+                <div
+                    
                 >
                     <h2 className="text-3xl text-primary text-center font-heading mb-6">Notre Mission</h2>
                     <p className="text-dark/80 leading-relaxed">
@@ -64,14 +58,11 @@ export default function Accueil() {
                         de la nature. Notre savoir-faire artisanal et notre passion garantissent
                         une expérience unique.
                     </p>
-                </motion.div>
-                <motion.img
+                </div>
+                <img
                     src="/photo3.jpg"
                     alt="Mission"
                     className="w-full h-[250px] md:h-[400px] object-cover rounded-2xl shadow-lg"
-                    initial={{ opacity: 0, x: 60 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.8 }}
                 />
             </div>
 

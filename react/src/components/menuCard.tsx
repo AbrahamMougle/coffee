@@ -1,5 +1,4 @@
 import { FiStar, FiClock, FiThermometer } from "react-icons/fi";
-import { motion } from "framer-motion";
 import Button from "./button";
 type MenuItem = {
   id: number;
@@ -11,14 +10,10 @@ type MenuItem = {
   preparation: string;
   temperature: string;
 };
-export default function MenuCard({ item, index }: { item: MenuItem; index: number }) {
+export default function MenuCard({ item }: { item: MenuItem }) {
   return (
-    <motion.article
-      className="group relative bg-light/50 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2"
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
+    <article
+      
     >
       {/* Image */}
       <div className="relative h-64 overflow-hidden">
@@ -27,7 +22,7 @@ export default function MenuCard({ item, index }: { item: MenuItem; index: numbe
           alt={item.name}
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-dark/40 to-transparent" />
+       
 
         {/* Tags */}
         <div className="absolute top-4 left-4 flex gap-2 flex-wrap">
@@ -39,6 +34,7 @@ export default function MenuCard({ item, index }: { item: MenuItem; index: numbe
               {tag}
             </span>
           ))}
+ 
         </div>
 
         {/* Badge Populaire */}
@@ -76,6 +72,6 @@ export default function MenuCard({ item, index }: { item: MenuItem; index: numbe
         </Button>
         </div>
       </div>
-    </motion.article>
+    </article>
   );
 }

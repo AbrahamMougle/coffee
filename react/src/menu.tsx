@@ -1,4 +1,3 @@
-
 import Button from "./components/button";
 import MenuCard from "./components/menuCard";
 type MenuItem = {
@@ -79,10 +78,10 @@ const menuItems: MenuItem[] = [
 
 export default function Menu() {
   return (
-    <section className="py-20 bg-white" id="menu">
+    <section className="py-5 bg-white" >
       <div className="container mx-auto px-6">
         <header className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-4xl font-heading text-dark mb-6">
+          <h2 className="text-4xl font-heading text-dark mb-3">
             Notre Menu Signature
           </h2>
           <p className="text-lg text-dark/80 leading-relaxed">
@@ -93,8 +92,8 @@ export default function Menu() {
         </header>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {menuItems.map((item, index) => (
-            <MenuCard key={item.id} item={item} index={index} />
+          {menuItems.map((item) => (
+            <MenuCard key={item.id} item={item}  />
           ))}
         </div>
 

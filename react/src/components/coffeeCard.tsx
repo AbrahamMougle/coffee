@@ -1,8 +1,5 @@
 import React from "react";
 import Button from "./button";
-import { motion} from "framer-motion";
-import type { Variants } from "framer-motion";
-
 interface CoffeeCardProps {
   id: number;
   title: string;
@@ -11,30 +8,11 @@ interface CoffeeCardProps {
   ctaText: string;
 }
 
-const directions = ["left", "right", "top"] as const;
-
-const getDirectionVariant = (direction: typeof directions[number]): Variants => {
-  switch (direction) {
-    case "left":
-      return { hidden: { x: -50, opacity: 0 }, visible: { x: 0, opacity: 1, transition: { duration: 0.5 } } };
-    case "right":
-      return { hidden: { x: 50, opacity: 0 }, visible: { x: 0, opacity: 1, transition: { duration: 0.5 } } };
-    case "top":
-      return { hidden: { y: -50, opacity: 0 }, visible: { y: 0, opacity: 1, transition: { duration: 0.5 } } };
-  }
-};
-// getDirection renvoie le variant selon left, right ,top 
 const CoffeeCard: React.FC<CoffeeCardProps> = ({ title, description, imageUrl, ctaText }) => {
-  const direction = directions[Math.floor(Math.random() * directions.length)];
-  const variants = getDirectionVariant(direction);// le variant  varie et d'ailleur est aleactoire ce qui est justifie la variation aleactoire des card ie a chaque chargement l'animation change.
 
   return (
-    <motion.div
+    <div
       className="group overflow-hidden rounded-xl bg-light/50 hover:bg-light transition-colors duration-300 border border-accent/10"
-      variants={variants}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.3 }}
       
     >
       <div className="relative aspect-video overflow-hidden ">
@@ -55,7 +33,7 @@ const CoffeeCard: React.FC<CoffeeCardProps> = ({ title, description, imageUrl, c
         </Button>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 };
 
