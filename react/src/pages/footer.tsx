@@ -59,8 +59,8 @@ export  default function Footer() {
         </div>
 
         {/* 3ème Section - Testimonial */}
-        <div className="space-y-4">
-          <h1 className="text-2xl font-heading font-bold text-primary">Témoignages</h1>
+        <div className="space-y-4 ">
+          <h1 className="text-2xl  font-heading font-bold text-primary">Témoignages</h1>
           <div className="space-y-4">
             {testimonials.map((testimonial, index) => (
               <div key={index}>

@@ -4,21 +4,20 @@ import { FiMenu, FiX, FiHome, FiBookOpen, FiInfo, FiPhone } from "react-icons/fi
 import { motion, AnimatePresence } from "framer-motion";
 import type { Variants } from "framer-motion";
 import Button from "../components/button";
-function NavLinkStyle({to,linkName}:{to:string,isActiveStyle?:string,noIsActivestyle?:string,linkName:string}) {
-  return  <> 
-   <NavLink
-                  to={to}
-                  className={({ isActive }) =>
-                    ` font-body transition-colors duration-300 ${
-                      isActive ? 'text-primary font-medium bg-primary/5':"text-dark/90 hover:text-primary hover:bg-primary/5"
-                    }`
-                  }
-                >
-                  
-                  {linkName}
-                </NavLink>
+function NavLinkStyle({ to, linkName }: { to: string, isActiveStyle?: string, noIsActivestyle?: string, linkName: string }) {
+  return <>
+    <NavLink
+      to={to}
+      className={({ isActive }) =>
+        ` font-body transition-colors duration-300 ${isActive ? 'text-primary font-medium bg-primary/5' : "text-dark/90 hover:text-primary hover:bg-primary/5"
+        }`
+      }
+    >
+
+      {linkName}
+    </NavLink>
   </>
-  
+
 }
 
 export default function Header() {
@@ -44,7 +43,7 @@ export default function Header() {
   };
 
   const buttonVariants: Variants = {
-    hover: { scale: 1.1, boxShadow: "0px 8px 15px rgba(0,0,0,0.3)", transition: { type: "spring", stiffness: 300 } },
+    hover: { scale: 1.1, transition: { type: "spring", stiffness: 300 } },
   };
 
   return (
@@ -58,7 +57,7 @@ export default function Header() {
           <nav className="flex items-center gap-6">
             {navLinks.map((link) => (
               <motion.div key={link.to} variants={linkVariants} whileHover="hover">
-                <NavLinkStyle to={link.to} linkName= {link.name}/>
+                <NavLinkStyle to={link.to} linkName={link.name} />
               </motion.div>
             ))}
           </nav>
@@ -95,7 +94,7 @@ export default function Header() {
 
             {/* Menu mobile */}
             <motion.div
-              className="fixed top-0 right-0 h-full w-64 bg-light/95 backdrop-blur-sm shadow-lg z-40 md:hidden"
+              className="fixed inset-y-0 right-0 h-full w-64 bg-light/95 backdrop-blur-sm shadow-lg z-40 md:hidden"
               variants={menuVariants}
               initial="hidden"
               animate="visible"
@@ -113,10 +112,9 @@ export default function Header() {
                     <NavLink
                       to={link.to}
                       className={({ isActive }) =>
-                        `flex items-center py-3 px-4 rounded-lg transition-colors duration-300 ${
-                          isActive
-                            ? "text-primary font-medium bg-primary/5"
-                            : "text-dark/90 hover:text-primary hover:bg-primary/5"
+                        `flex items-center py-3 px-4 rounded-lg transition-colors duration-300 ${isActive
+                          ? "text-white font-medium  bg-primary/80"
+                          : "text-dark/90 hover:text-primary hover:bg-primary/5"
                         }`
                       }
                       onClick={() => setIsMenuOpen(false)}
