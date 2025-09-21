@@ -36,7 +36,6 @@ export default function MenuCard({ item }: { item: MenuItem }) {
           ))}
  
         </div>
-
         {/* Badge Populaire */}
         {item.tags.includes("Populaire") && (
           <div className="absolute top-4 right-4">
@@ -56,8 +55,8 @@ export default function MenuCard({ item }: { item: MenuItem }) {
           {item.description}
         </p>
 
-        <div className="flex items-center gap-4 text-sm text-dark/60">
-          <div className="flex items-center gap-1">
+        <div className="flex items-center gap-4 text-sm text-dark/60 mb-2">
+          <div className="flex items-center gap-1 ">
             <FiClock className="text-primary" />
             {item.preparation}
           </div>

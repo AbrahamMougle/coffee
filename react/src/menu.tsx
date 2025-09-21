@@ -81,7 +81,7 @@ export default function Menu() {
     <section className="py-5 bg-white" >
       <div className="container mx-auto px-6">
         <header className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-4xl font-heading text-dark mb-3">
+          <h2 className="text-md sm:text-4xl font-heading text-dark mb-3">
             Notre Menu Signature
           </h2>
           <p className="text-lg text-dark/80 leading-relaxed">
@@ -97,7 +97,7 @@ export default function Menu() {
           ))}
         </div>
 
-        <div className="text-center mt-16">
+        <div className="text-center mt-4">
           <p className="text-dark/80 mb-6">
             Vous avez des allergies ou des préférences spécifiques ? Notre équipe
             se fera un plaisir de vous conseiller.

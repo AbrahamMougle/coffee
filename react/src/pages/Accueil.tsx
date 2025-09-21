@@ -18,8 +18,6 @@ export default function Accueil() {
         { icon: <FiHeart />, number: "100%", label: "Passion" },
     ];
 
-
-
     return (
         <section className="bg-gray-50">
             {/* HERO FULL SCREEN */}
@@ -27,12 +25,12 @@ export default function Accueil() {
                 <img
                     src="/photo3.jpg"
                     alt="Hero"
-                    className="absolute inset-0 w-full h-[500px]  md:h-full object-cover"
+                    className="absolute inset-0 w-full md:h-full object-cover"
                     
                 />
                 <div/>
                 <div
-                    className=" max-w-2xl text-white z-10"
+                    className="text-white z-20"
                     
                 >
                     <h1 className="text-md md:text-6xl font-heading mb-4">
@@ -48,7 +46,7 @@ export default function Accueil() {
             </div>
 
             {/* MISSION SPLIT */}
-            <div className="container mx-auto px-10 py-15 grid md:grid-cols-2 gap-12 items-center">
+            <div className="container mx-auto px-10 py-10 grid md:grid-cols-2 gap-12 items-center">
                 <div
                     
                 >
